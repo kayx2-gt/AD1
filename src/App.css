@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e, #2a2a72, #6441a5);
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Center all main app containers */
+.ngilo-user,
+.generate-container,
+.message-container,
+.inbox-container {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(145deg, #222244, #2d2d5a);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+  color: #f0f0ff;
+  margin: .3rem auto;
+}
+
+/* ✅ Make Inbox scrollable when content is long */
+.inbox-container {
+  max-height: 53vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #764ba2 #2d2d5a;
+  padding-top: 0; /* ✅ removes space above the h2 */
+  position: relative;
+}
+
+/* 📌 Make Inbox Title Truly at the Top */
+.inbox-container h2 {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(145deg, #222244, #2d2d5a);
+  padding: 1rem 0;
+  margin: 0;
+  z-index: 10;
+  border-bottom: 2px solid rgba(118, 75, 162, 0.4);
+}
+
+/* ✨ Custom scrollbar (for Webkit browsers) */
+.inbox-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.inbox-container::-webkit-scrollbar-track {
+  background: #2d2d5a;
+  border-radius: 10px;
+}
+
+.inbox-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #764ba2, #667eea);
+  border-radius: 10px;
+}
+
+.inbox-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6b46c1, #5a67d8);
+}
+
+h1,
+h2 {
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+/* ✨ Subtle fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔘 Buttons */
+button {
+  background: linear-gradient(90deg, #764ba2, #667eea);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 22px;
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #6b46c1, #5a67d8);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(118, 75, 162, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Center the Home page buttons */
+.user-msg {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* 📬 Message and Input Fields */
+.message-container input,
+.message-container textarea {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  padding: 10px;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.message-container textarea {
+  resize: none;
+}
+
+.message-container input:focus,
+.message-container textarea:focus {
+  outline: 2px solid #764ba2;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 📥 Inbox messages */
+.message-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #764ba2;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: left;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.message-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .ngilo-user,
+  .generate-container,
+  .message-container,
+  .inbox-container {
+    padding: 1.8rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+.user-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.user-login label {
+  color: #aaa;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.user-login input {
+  border: 1px solid #21015c;
+  border-radius: 6px;
+  padding: 12px;
+  background: rgba(15, 15, 15, 0.9);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.user-login input:focus {
+  border-color:#5c04ff;
+  background-color: #0a0a0a;
+  outline: none;
+}
